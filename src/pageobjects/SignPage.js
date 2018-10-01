@@ -12,11 +12,9 @@ const LOGIN_BTN = By.css('.page .button-container button');
 const INPUT_PW = By.css('.page #input-password'); 
 const URL ='/sign';
 
-const SLEEPCOUNT = 500;
+
 export default class SignPage extends BasePage {
  
-
-
   async isLoaded () {
     await this.waitForDisplayed(NAV_BAR)
     await this.waitForDisplayed(LOGO)
@@ -30,9 +28,9 @@ export default class SignPage extends BasePage {
     await this.sendKeys(INPUT_PHONE, phone)
     await this.waitForDisplayed(INPUT_PW)
     await this.sendKeys(INPUT_PW, pw);
-    await this.driver.sleep(SLEEPCOUNT);
+    await this.waitForDisplayed(LOGIN_BTN)
     await this.click(LOGIN_BTN);
-   
+    await this.waitForDisplayed(By.css('.userBtn'));
   }
 
   getUrl(){

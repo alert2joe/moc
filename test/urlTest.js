@@ -2,22 +2,21 @@
 import { assert } from 'chai'
 import Cookie from '../src/Classes/Cookie';
 
-import BasePage from './../src/pageobjects/BasePage';
-import HomePage from './../src/pageobjects/HomePage';
-import MaskPage from './../src/pageobjects/MaskPage';
-import SignPage from './../src/pageobjects/SignPage';
-import AboutPage from './../src/pageobjects/AboutPage';
-import UserPage from './../src/pageobjects/UserPage';
-import UserDealPage from './../src/pageobjects/UserDealPage';
-import UserReceivedPage from './../src/pageobjects/UserReceivedPage';
-import UserOrderPage from './../src/pageobjects/UserOrderPage';
-import CartPage from './../src/pageobjects/CartPage';
+import BasePage from '../src/pageobjects/BasePage';
+import HomePage from '../src/pageobjects/HomePage';
+import SignPage from '../src/pageobjects/SignPage';
+import AboutPage from '../src/pageobjects/AboutPage';
+import UserPage from '../src/pageobjects/UserPage';
+import UserDealPage from '../src/pageobjects/UserDealPage';
+import UserReceivedPage from '../src/pageobjects/UserReceivedPage';
+import UserOrderPage from '../src/pageobjects/UserOrderPage';
+import CartPage from '../src/pageobjects/CartPage';
 
 
 //import SearchResultsPage from './../src/pageobjects/SearchResultsPage'
 
-import DriverBuilder from './../src/lib/DriverBuilder'
-import driverutils from './../src/lib/driver-utils'
+import DriverBuilder from '../src/lib/DriverBuilder'
+import driverutils from '../src/lib/driver-utils'
 
 describe('URL Tests', function () {
   let driverBuilder
@@ -36,8 +35,6 @@ describe('URL Tests', function () {
 
   })
   
-
-
   it('Deal list Page', async function () {
     await driverutils.goToPath(driver,'/pickup/1/deals');
     const page = new HomePage(driver)
@@ -70,8 +67,8 @@ describe('URL Tests', function () {
       //login
     const signPage = new SignPage(driver)
     await driverutils.goToPath(driver,signPage.getUrl());
-    await signPage.signUp('97099379','191551');
-    await driver.sleep(3000);
+    await signPage.signUp('97099379','joe191551');
+   
     // User page
     let page = new UserPage(driver)
     await driverutils.goToPath(driver,page.getUrl());
@@ -108,7 +105,7 @@ describe('URL Tests', function () {
 
 
   afterEach(async function () {
-    await driver.sleep(500)
+    await driver.sleep(100)
   })
 
 

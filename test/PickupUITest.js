@@ -1,8 +1,6 @@
 // @flow
 import { assert } from 'chai'
 import Cookie from '../src/Classes/Cookie';
-
-import MaskPage from '../src/pageobjects/MaskPage';
 import PickupPointUI from '../src/UIobjects/PickupPointUI';
 
 import DriverBuilder from '../src/lib/DriverBuilder'
@@ -13,7 +11,7 @@ describe('Pickup Point UI Tests', function () {
   let driver
 
   before(async function() {
-    
+ 
   });
 
   beforeEach(async function () {
