@@ -67,7 +67,7 @@ describe('URL Tests', function () {
       //login
     const signPage = new SignPage(driver)
     await driverutils.goToPath(driver,signPage.getUrl());
-    await signPage.signUp('97099379','joe191551');
+    await signPage.signUp('97099379','191551');
    
     // User page
     let page = new UserPage(driver)

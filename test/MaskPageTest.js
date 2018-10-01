@@ -2,6 +2,7 @@
 import { assert } from 'chai'
 
 import Cookie from '../src/Classes/Cookie';
+import UserModel from '../src/model/UserModel';
 import MaskPage from '../src/pageobjects/MaskPage';
 
 
@@ -13,6 +14,11 @@ describe('Intro Mask Tests', function () {
   let driver
 
   before(async function() {
+    const User = new UserModel();
+    await User.getConnection();
+    await User.refresh();
+    const a = await User.getData('user');
+    //console.log(a);
     
   });
 
@@ -28,23 +34,23 @@ describe('Intro Mask Tests', function () {
     assert(isIntroExist,"Intro mask should display")
   })
 
-  it('Click 立即開始購物 button', async function () {
-    const maskPage = new MaskPage(driver)
-    await maskPage.clickComerBtn();
-    const intro = await driver.manage().getCookie('app-intro');
-    assert(intro.value==1,"should has app-intro cookie")
-    const isIntroExist = await maskPage.isIntroExist();
-    assert(!isIntroExist,"Intro mask should hide")
-  })
+  // it('Click 立即開始購物 button', async function () {
+  //   const maskPage = new MaskPage(driver)
+  //   await maskPage.clickComerBtn();
+  //   const intro = await driver.manage().getCookie('app-intro');
+  //   assert(intro.value==1,"should has app-intro cookie")
+  //   const isIntroExist = await maskPage.isIntroExist();
+  //   assert(!isIntroExist,"Intro mask should hide")
+  // })
 
-  it('access with cookie', async function () {
-     const maskPage = new MaskPage(driver)
-     const cookie = new Cookie(driver)
-     await cookie.addIntro()
+  // it('access with cookie', async function () {
+  //    const maskPage = new MaskPage(driver)
+  //    const cookie = new Cookie(driver)
+  //    await cookie.addIntro()
   
-     const isIntroExist = await maskPage.isIntroExist();
-     assert(!isIntroExist,"Intro mask should hide")
-  })
+  //    const isIntroExist = await maskPage.isIntroExist();
+  //    assert(!isIntroExist,"Intro mask should hide")
+  // })
 
 
   afterEach(async function () {
