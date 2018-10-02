@@ -1,12 +1,17 @@
-const mysql = require('mysql2/promise');
+import mysql from 'mysql2/promise';
+import DOTENV from 'dotenv'
+DOTENV.config();
 
 let CON = null;
 export default class Model  {
 
-
     async getConnection(){
         if(CON==null){
-           CON = await mysql.createConnection({host:'localhost', user: 'root', database: 'moc'});
+           CON = await mysql.createConnection({
+               host:process.env.DB_HOST, 
+               user: process.env.DB_USER, 
+               password:process.env.DB_PASS,
+               database: process.env.DB});
         }
     }
 

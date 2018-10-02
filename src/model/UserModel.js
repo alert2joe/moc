@@ -11,7 +11,7 @@ export default class UserModel extends Model {
         (3, 3, 3, 3),
         (4, 4, 4, 4),
         (4, 4, 4, 4),
-        (88, 4, 4, 4);`);
+        (100, 4, 4, 4);`);
     }
 
  
