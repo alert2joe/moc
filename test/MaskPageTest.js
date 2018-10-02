@@ -4,10 +4,9 @@ import { assert } from 'chai'
 import Cookie from '../src/Classes/Cookie';
 import UserModel from '../src/model/UserModel';
 import MaskPage from '../src/pageobjects/MaskPage';
-
-
 import DriverBuilder from '../src/lib/DriverBuilder'
 import driverutils from '../src/lib/driver-utils'
+
 
 describe('Intro Mask Tests', function () {
   let driverBuilder
@@ -15,10 +14,11 @@ describe('Intro Mask Tests', function () {
 
   before(async function() {
     const User = new UserModel();
+    
     await User.getConnection();
     await User.refresh();
     const a = await User.getData('user');
-    //console.log(a);
+  
     
   });
 

@@ -1,5 +1,8 @@
 // @flow
 import { assert } from 'chai'
+import DOTENV from 'dotenv'
+DOTENV.config();
+
 import Cookie from '../src/Classes/Cookie';
 
 import BasePage from '../src/pageobjects/BasePage';
@@ -67,7 +70,7 @@ describe('URL Tests', function () {
       //login
     const signPage = new SignPage(driver)
     await driverutils.goToPath(driver,signPage.getUrl());
-    await signPage.signUp('97099379','191551');
+    await signPage.signUp(process.env.WEB_USER,process.env.WEB_PASSWORD);
    
     // User page
     let page = new UserPage(driver)
